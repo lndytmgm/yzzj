@@ -37,7 +37,7 @@ def voting_voted(vote_id):
 
 
     if rt == True:
-        if 'already vote it' in data:
+        if 'already vote it' in str(data):
             code =500
             return jsonify({'result': rt,'message': 'already vote it','status':code})
         else:

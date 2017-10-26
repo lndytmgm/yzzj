@@ -39,9 +39,10 @@ def update_vote_info(vote_id,item_text,house):
     try:
         rt,vote_item_info = get_vote_info(vote_id)
         for i in vote_item_info.vote_items:
+            print house
             # print i['vote']
             # print i['text']
-            # print i['vote_user']
+            print i['vote_user']
             # print '===='
 
             if house in i['vote_user']:
