@@ -1,0 +1,76 @@
+{% extends "common/backend.html" %}StringField
+
+{% block content -%}
+
+    <div class="container-fluid" id="dependency_body" xmlns="http://www.w3.org/1999/html">
+
+                <div class="row-fluid" id="p_{{ user.phone }}">
+					<div class="span12">
+						<div class="box box-bordered">
+							<div class="box-title">
+								<h3><i class="icon-user"></i> {{ user.username }}</h3>
+							</div>
+							<div class="box-content nopadding">
+								<form action="#" method="POST" class='form-horizontal form-column form-bordered'>
+									<div class="span6">
+                                    {% for k,v in user.iteritems() %}
+                                        {% if k in ['level','password','id'] %}
+                                            {% if session['level'] == 4 %}
+                                                    <div class="control-group">
+                                                        <label for="textfield" class="control-label">{{ k }}</label>
+                                                        <div class="controls">
+                                                            <input type="text" name="textfield" id="{{ k }}" placeholder="Text input" class="input-xxlarge" value="{{ v }} ">
+                                                        </div>
+                                                    </div>
+                                            {% endif %}
+                                        {% else %}
+
+                                                    <div class="control-group">
+                                                        <label for="textfield" class="control-label">{{ k }}</label>
+                                                        <div class="controls">
+{#                                                            {% if k == 'auth_status'  %}#}
+{#                                                                <input type="text" name="textfield" id="{{ k }}" placeholder="Text input" class="input-xxlarge" value="{{ v }} ">#}
+{#                                                            {% else %}#}
+                                                                <input type="text" name="textfield" id="{{ k }}" placeholder="Text input" class="input-xxlarge" value="{{ v }}" disabled>
+{#                                                            {% endif %}#}
+                                                        </div>
+                                                    </div>
+
+                                        {% endif %}
+                                    {% endfor %}
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+            <div class="row-fluid">
+                <div class="span12">
+                    <div class="form-actions">
+
+                        <button type="submit" class="btn btn-primary">保存</button>
+                        <button type="button" class="btn btn-primary" id="btn-change-auth" onclick="update_auth_status('{{ user.phone }}')">更新认证</button>
+                        {% if session['level'] == 4 %}
+                            <button type="button" class="btn btn-primary" id="btn-delete">删除</button>
+                        {% endif %}
+                        <button type="button" class="btn" id="btn-cancel">返回</button>
+                    </div>
+                </div>
+
+                <div class="span12">
+                    <p class="color-red" id="message_info" ></p>
+                </div>
+
+            </div>
+
+
+{%- endblock content %}
+
+
+{% block scripts %}
+    <script src="{{ url_for('static', filename='backend/js/mgm_backend_user.js') }}"></script>
+{%- endblock scripts %}
+
+

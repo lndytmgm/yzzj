@@ -1,0 +1,106 @@
+{% extends "common/backend.html" %}StringField
+
+{% block content -%}
+
+    <div class="container-fluid"  xmlns="http://www.w3.org/1999/html">
+
+                <div class="row-fluid" >
+					<div class="span12">
+						<div class="box box-bordered">
+							<div class="box-title">
+								<h3><i class="icon-user"></i> 添加投票活动 </h3>
+							</div>
+
+							<div class="box-content nopadding">
+								<form action="#" method="POST" class='form-horizontal form-column form-bordered'>
+									<div class="span6" id="voting_table">
+
+                                        <div class="control-group">
+                                            <label for="textfield" class="control-label">标题</label>
+                                            <div class="controls">
+                                                <input type="text" name="voting_title" id="voting_title" placeholder="Text input" class="input-xxlarge" value=" XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX ">
+                                                <button type="button" class="btn btn-primary" id="btn-change-auth" onclick="add_voting_item()">添加选项</button>
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <label for="textarea" class="control-label">描述</label>
+                                            <div class="controls">
+                                                <textarea name="voting_desc" id="voting_desc" class="input-block-level" placeholder="活动具体描述，请标注文字做说明"> </textarea>
+                                            </div>
+                                        </div>
+
+                                        <div class="control-group">
+                                            <label for="textfield" class="control-label">选项1</label>
+                                            <div class="controls">
+                                                <input type="text" name="voting_item1" id="voting_item1"  placeholder="Text input" class="input-xlarge" value=" 是 ">
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <label for="textfield" class="control-label">选项2</label>
+                                            <div class="controls">
+                                                <input type="text" name="voting_item2"  id="voting_item2" placeholder="Text input" class="input-xlarge" value=" 否 ">
+                                            </div>
+                                        </div>
+
+
+
+									</div>
+
+
+
+								</form>
+							</div>
+                                    <div class="form-actions">
+
+                                        <button type="button" id="voting-save" class="btn btn-primary">保存</button>
+
+                                        {% if session['level'] == 4 %}
+                                            <button type="button" class="btn btn-primary" id="btn-delete">删除</button>
+                                        {% endif %}
+                                        <button type="button" class="btn" id="btn-cancel">返回</button>
+                                    </div>
+                                    <hr />
+                                    <div>
+                                        <p class="color-red" id="message_info" ></p>
+                                    </div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+{#            <div class="row-fluid">#}
+{#                <div class="span12">#}
+{#                    <div class="form-actions">#}
+{##}
+{#                        <button type="submit" class="btn btn-primary">保存</button>#}
+{##}
+{#                        {% if session['level'] == 4 %}#}
+{#                            <button type="button" class="btn btn-primary" id="btn-delete">删除</button>#}
+{#                        {% endif %}#}
+{#                        <button type="button" class="btn" id="btn-cancel">返回</button>#}
+{#                    </div>#}
+{#                </div>#}
+{##}
+{#                <div class="span12">#}
+{#                    <p class="color-red" id="message_info" ></p>#}
+{#                </div>#}
+{##}
+{#            </div>#}
+
+
+{%- endblock content %}
+
+
+{% block scripts %}
+    <script src="{{ url_for('static', filename='backend/js/mgm_backend_voting.js') }}"></script>
+    <script type="text/javascript">
+    jQuery(document).ready(function() {
+
+        add_voting_submit();
+
+    });
+</script>
+{%- endblock scripts %}
+
+

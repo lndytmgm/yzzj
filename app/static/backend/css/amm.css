@@ -1,0 +1,28 @@
+.btn.btn-orangeyc {
+    background: #f8a31f;
+    color: #fff !important
+}
+.orangeyc {
+    font-size: 10px !important;
+    background: #f8a31f;
+    color: #fff !important
+}
+
+ul > li.orangeyc, .label-orange {
+    background: #000000
+}
+
+
+.tiles > li.longlongyc:hover:before {
+    width: 460px
+}
+
+.tiles > li.longlongyc > a {
+    width: 470px
+}
+
+
+.tiles > li.longlongyc > a span{
+
+    padding-top: 0
+}

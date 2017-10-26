@@ -1,0 +1,85 @@
+{% extends "common/base.html" %}
+
+{% block head %}
+<!-- JS regist user -->
+<script type="text/javascript" src="{{ url_for('static', filename='index/assets/js/mgm_upload.js') }}"></script>
+{%- endblock head %}
+
+{% block body_content -%}
+
+
+<!--=== Content Part ===-->
+<div class="body" style="background:url({{ url_for('static', filename='index/assets/img/breadcrumbs.png') }}) repeat;">
+
+
+	<div class="container" >
+		<div class="row-fluid margin-bottom-60" style="margin-top:100px">
+
+        	<form class="reg-page" id="renzheng_form" enctype="multipart/form-data" />
+            	<h3>鲁能公众号 业主实名认证</h3>
+{#                <div class="controls">#}
+{##}
+{#                    <label>上传鲁能公众号认证截图 <span class="color-red">*</span></label>#}
+{#                    <div class="input-append">#}
+{#                        <input type="text" class="span12 search-query" />#}
+{#                        <button type="button" class="btn-u btn-u-sea"> 选 择</button>#}
+{##}
+{#                    </div>#}
+{#                </div>#}
+
+
+{#                    <div class="controls">#}
+{#                        <div class="fileupload fileupload-new" data-provides="fileupload">#}
+{#                            <span class="btn btn-file"><input type="file" /></span>#}
+{#                            <span class="fileupload-preview"></span>#}
+{##}
+{#                        </div>#}
+{#                    </div>#}
+
+                <div class="controls">
+                    <div class="input-append">
+                        <input class="input-xxlarge span12" type="file" id="myfile" name="myfile"/>
+
+                    </div>
+                </div>
+
+                <div class="controls">
+
+                    <label><span class="color-red">公众号截图示例如下: </span></label>
+                    <div class="input-append">
+                        <img src="{{ url_for('static', filename='index/assets/img/renzheng.jpg') }}" alt="" />
+
+
+                    </div>
+                </div>
+
+
+                <hr />
+                <div class="controls form-inline">
+                    {% if session['renzheng']=='doing' %}
+                        <label class="checkbox">&nbsp; 业主身份正在审核中，请耐心等待！</label>
+                        <button class="btn-u pull-right" type="button" id="upload" disabled>审核中</button>
+                    {% else %}
+                        <label class="checkbox">&nbsp; 选择截图后，点击右侧按钮，完成认证</label>
+                        <button class="btn-u pull-right" type="button" id="upload" >上传截图</button>
+                    {% endif %}
+                </div>
+                <hr />
+                <p class="color-red" id="message_info" ></p>
+            </form>
+
+
+        </div><!--/row-fluid-->
+	</div><!--/container-->
+
+</div><!--/body-->
+<!--=== End Content Part ===-->
+
+
+{%- endblock body_content %}
+
+
+
+{% block initjs -%}
+        uploadfile();
+{%- endblock initjs %}

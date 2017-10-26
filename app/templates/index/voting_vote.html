@@ -1,0 +1,53 @@
+{% extends "common/base.html" %}
+
+{% block head %}
+
+{%- endblock head %}
+
+{% block body_content -%}
+<div class="container" style="background:url('/static/index/assets/img/breadcrumbs.png') repeat;">
+	<div class="row-fluid">
+<!-- Checkboxes,Radios and Selects -->
+        <div class="row-fluid margin-bottom-40">
+            <!-- Checkboxes, Inline Checkboxes and Radios -->
+
+            <div class="span12">
+                <!-- Checkboxes and Radios -->
+				<div class="headline"><h3>{{ vote_info.title }}</h3></div>
+                <p>
+                    {% if vote_info.description == None %}
+                    {% else %}
+                    {{ vote_info.description }}
+                    {% endif %}
+                </p>
+{#                <label class="checkbox">#}
+{#                    <input type="checkbox" value="" />#}
+{#                    Option one is this and that—be sure to include why it's great#}
+{#                </label>#}
+
+
+                {% for item in vote_info.vote_items %}
+
+                    <label class="radio">
+                        <input type="radio" name="optionsRadios" id="optionsRadios{{ loop.index }}" value="{{ item.text }}" style="margin-left: 10px"/>
+                        {{ item.text }}
+                    </label>
+                {% endfor %}
+
+            <hr />
+            <p><a class="btn-u btn-u-large" href="/voting/voted/{{ vote_info.id }}" id="btn_voted" >我要投票</a> </p>
+            <hr />
+            <p class="color-red" id="message_info" ></p>
+            </div>
+
+
+        </div><!--/row-fluid-->
+    </div>    <!--//End Checkboxes,Radios and Selects -->
+</div>
+
+{%- endblock body_content %}
+
+
+{% block initjs -%}
+
+{%- endblock initjs %}

@@ -1,0 +1,74 @@
+{% extends "common/base.html" %}
+
+{% block head %}
+<!-- JS issue_submit user -->
+<script type="text/javascript" src="{{ url_for('static', filename='index/assets/js/mgm_issue_submit.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='index/assets/js/mgm_issue_vote.js') }}"></script>
+{%- endblock head %}
+
+{% block body_content -%}
+
+<!--=== Content Part ===-->
+<div class="container portfolio-item">
+	<div class="row-fluid margin-bottom-20">
+		<!-- Carousel -->
+        <div class="span7">
+            <div id="myCarousel" class="carousel slide">
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <img src="{{ url_for('static', filename='index/assets/img/carousel/5.jpg') }}" alt="" />
+                        <div class="carousel-caption">
+                            <h4>XXXXXXXXXXXXXXXX</h4>
+                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta.</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="{{ url_for('static', filename='index/assets/img/carousel/4.jpg') }}" alt="" />
+                        <div class="carousel-caption">
+                            <h4>Second Thumbnail label</h4>
+                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta.</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="{{ url_for('static', filename='index/assets/img/carousel/3.jpg') }}" alt="" />
+                        <div class="carousel-caption">
+                            <h4>Third Thumbnail label</h4>
+                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-arrow">
+                    <a data-slide="prev" href="#myCarousel" class="left carousel-control"><i class="icon-angle-left"></i></a>
+                    <a data-slide="next" href="#myCarousel" class="right carousel-control"><i class="icon-angle-right"></i></a>
+                </div>
+            </div>
+        </div><!--/span7-->
+        <!-- //End Tabs and Carousel -->
+
+        <div class="span5">
+        	<h3>{{ issue.title }}</h3>
+            <p>{{ issue.description }}</p>
+            <p>{{ issue.description }}</p>
+            <ul class="unstyled">
+                <li><i class="icon-user color-green"></i> 编号: {{ issue.id }}</li>
+            	<li><i class="icon-user color-green"></i> 票数: {{ issue.vote }}</li>
+            	<li><i class="icon-calendar color-green"></i> 提交时间: {{ issue.create_date }}</li>
+            	<li><i class="icon-tags color-green"></i> 处理状态: {{ issue.status }}</li>
+            </ul>
+            <p><a class="btn-u btn-u-large" href="#" id="btn_vote" >投票支持此诉求</a> <a class="btn-u btn-u-sea btn-u-large " href="/issue/list" >返回问题列表</a></p>
+            <hr />
+            <p class="color-red" id="message_info" ></p>
+        </div>
+
+    </div><!--/row-fluid-->
+</div>
+<!-- End Content Part -->
+
+
+{%- endblock body_content %}
+
+
+{% block initjs -%}
+    issue_submit();
+    vote_for_this({{ issue.id }})
+{%- endblock initjs %}

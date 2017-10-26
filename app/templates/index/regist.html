@@ -1,0 +1,111 @@
+{% extends "common/base.html" %}
+
+{% block head %}
+
+<!-- JS regist user -->
+<script type="text/javascript" src="{{ url_for('static', filename='index/assets/js/mgm_regist.js') }}"></script>
+{%- endblock head %}
+
+{% block body_content -%}
+
+
+<!--=== Content Part ===-->
+<div class="body" style="background:url({{ url_for('static', filename='index/assets/img/breadcrumbs.png') }}) repeat;">
+
+
+	<div class="container" >
+		<div class="row-fluid margin-bottom-60" style="margin-top:100px">
+
+        	<form class="reg-page" />
+            	<h3>业主实名注册入口</h3>
+                <div class="controls">    
+                    <label>姓名 <span class="color-red">*</span></label>
+                    <input type="text" class="span12" id="username" />
+                    <label>手机号 <span class="color-red">*</span></label>
+                    <input type="text" class="span12" id="cellphone" />
+                    <label>房号 <span class="color-red">*</span></label>
+
+                    <select class="span3" id="building">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                    </select>
+                    <span class="color-red">#</span>
+                    <select class="span3" id="floor">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                    </select>
+                    <span class="color-red">-</span>
+                    <select class="span3" id="room">
+                        <option value="01">01</option>
+                        <option value="02">02</option>
+                        <option value="03">03</option>
+                        <option value="04">04</option>
+                        <option value="05">05</option>
+                        <option value="06">06</option>
+                        <option value="07">07</option>
+                        <option value="08">08</option>
+                        <option value="09">09</option>
+                    </select>
+
+{#                    <label>上传鲁能公众号认证截图 <span class="color-red">*</span></label>#}
+{#                    <input type="text" class="span12" />#}
+{#                    <div class="input-append">#}
+{#                        <input type="text" class="span12 search-query" />#}
+{#                        <button type="button" class="btn-u btn-u-sea"> 上 传</button>#}
+{#                    </div>#}
+                </div>
+                <div class="controls">
+                    <div class="span12">
+                        <label>密码 <span class="color-red">*</span></label>
+                        <input type="text" class="span12" id="password" />
+                    </div>
+
+                </div>
+                <div class="controls form-inline">
+                    <label class="checkbox"><input type="checkbox" />&nbsp; 我同意实名业主认证，理性合法维权</label>
+                    <button class="btn-u pull-right" type="button" id="regist" >认证注册</button>
+                </div>
+                <hr />
+				<p>已经注册过? 点击 <a href="/login" class="color-green">这里</a>直接登录网站.</p>
+                <p class="color-red" id="message_info" ></p>
+            </form>
+
+
+        </div><!--/row-fluid-->
+	</div><!--/container-->
+
+</div><!--/body-->
+<!--=== End Content Part ===-->
+
+
+{%- endblock body_content %}
+
+
+
+{% block initjs -%}
+regist_user();
+{%- endblock initjs %}

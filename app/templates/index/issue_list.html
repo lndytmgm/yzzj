@@ -1,0 +1,63 @@
+{% extends "common/base.html" %}
+
+{% block head %}
+<!-- JS issue_submit user -->
+<script type="text/javascript" src="{{ url_for('static', filename='index/assets/js/mgm_issue_submit.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='index/assets/js/mgm_issuelist_vote.js') }}"></script>
+{%- endblock head %}
+
+{% block body_content -%}
+
+<div class="container">
+	<div class="row-fluid">
+        <!-- Default Tables styles -->
+
+		<div class="row-fluid">
+        	<div class="span12">
+	            <div class="headline"><h3>业主验房问题反馈列表 共{{ issue_list.count() }}个</h3></div>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th style="width: 20px;text-align: center">#</th>
+                            <th style="text-align: center">标题</th>
+                            <th style="width: 100px;text-align: center">提交日期</th>
+                            <th style="width: 200px;text-align: center">开发商回复</th>
+                            <th style="width: 200px;text-align: center">政府部门回复</th>
+                            <th style="width: 40px;text-align: center">状态</th>
+                            <th style="width: 30px;text-align: center">票数</th>
+                            <th style="width: 80px;text-align: center">我支持</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for issue in issue_list %}
+                        <tr>
+                            <td style="width: 20px;text-align: center">{{ issue.id }}</td>
+                            <td><a href="/issue/detail/{{ issue.id }}"> {{ issue.title }}</a></td>
+                            <td style="width: 100px;text-align: center">{{ issue.create_date }}</td>
+                            {% if issue.pic_kfs == None %}<td style="width: 200px"></td>{% else %}<td>{{ issue.pic_kfs }}</td>{% endif %}
+                            {% if issue.pic_zf == None %}<td style="width: 200px"></td>{% else %}<td>{{ issue.pic_zf }}</td>{% endif %}
+                            <td style="width: 40px;text-align: center">{{ issue.status }}</td>
+                            <td style="width: 30px;text-align: center">{{ issue.vote }}</td>
+                            <td style="width: 80px;text-align: center"><a class="btn-u btn-u-small btn-u-green" href="#" onclick="vote_for_this({{ issue.id }})"><i class="icon-thumbs-up"></i> 支持</a></td>
+                        </tr>
+                    {% endfor %}
+
+                    </tbody>
+                </table>
+                <p class="color-red" id="message_info" ></p>
+            </div>
+
+        </div><!--/row-fluid-->
+
+
+    </div>
+</div><!--/container-fluid-->
+<!-- End Content Part -->
+
+
+{%- endblock body_content %}
+
+
+{% block initjs -%}
+        issue_submit();
+{%- endblock initjs %}

@@ -1,0 +1,336 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <!-- Apple devices fullscreen -->
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <!-- Apple devices fullscreen -->
+    <meta names="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+
+    <title>{% block title %}MGM admin Console{% endblock title %}</title>
+    <!-- favicon.ico -->
+    <link rel="shortcut icon" href="{{ url_for('static', filename='backend/img/favicon.ico') }}">
+	<!-- Apple devices Homescreen icon -->
+	<link rel="apple-touch-icon-precomposed" href="{{ url_for('static', filename='backend/img/apple-touch-icon-precomposed.png') }}" />
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='backend/css/bootstrap.min.css') }}">
+    <!-- Bootstrap responsive -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='backend/css/bootstrap-responsive.min.css') }}">
+    <!-- jQuery UI -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='backend/css/plugins/jquery-ui/smoothness/jquery-ui.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='backend/css/plugins/jquery-ui/smoothness/jquery.ui.theme.css') }}">
+
+	<!-- dataTables -->
+	<link rel="stylesheet" href="{{ url_for('static', filename='backend/css/plugins/datatable/TableTools.css') }}" >
+	<!-- PageGuide -->
+	<link rel="stylesheet" href="{{ url_for('static', filename='backend/css/plugins/pageguide/pageguide.css') }}">
+	<!-- Fullcalendar -->
+	<link rel="stylesheet" href="{{ url_for('static', filename='backend/css/plugins/fullcalendar/fullcalendar.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='backend/css/plugins/fullcalendar/fullcalendar.print.css') }}" media="print">
+	<!-- chosen -->
+	<link rel="stylesheet" href="{{ url_for('static', filename='backend/css/plugins/chosen/chosen.css') }}" >
+	<!-- colorpicker -->
+	<link rel="stylesheet" href="{{ url_for('static', filename='backend/css/plugins/colorpicker/colorpicker.css') }}">
+
+	<!-- Easy pie  -->
+	<link rel="stylesheet" href="{{ url_for('static', filename='backend/css/plugins/easy-pie-chart/jquery.easy-pie-chart.css') }}">
+
+    <!-- icheck -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='backend/css/plugins/icheck/all.css') }}">
+    <!-- select2 -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='backend/css/plugins/select2/select2.css') }}">
+	<!-- XEditable -->
+	<link rel="stylesheet" href="{{ url_for('static', filename='backend/css/plugins/xeditable/bootstrap-editable.css') }}">
+
+	<!-- tip on top -->
+	<link rel="stylesheet" href="{{ url_for('static', filename='backend/css/overhang.css') }}">
+
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='backend/css/style.css') }}">
+    <!-- Color CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='backend/css/themes.css') }}">
+    <!-- amm CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='backend/css/amm.css') }}">
+
+    {% block defined_css %}
+    {%- endblock defined_css %}
+
+    <!-- jQuery -->
+    <script src="{{ url_for('static', filename='backend/js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='backend/js/plugins/form/jquery.form.min.js') }}"></script>
+    <!-- Nice Scroll -->
+    <script src="{{ url_for('static', filename='backend/js/plugins/nicescroll/jquery.nicescroll.min.js') }}"></script>
+
+    <!-- jQuery UI -->
+    <script src="{{ url_for('static', filename='backend/js/plugins/jquery-ui/jquery.ui.core.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='backend/js/plugins/jquery-ui/jquery.ui.widget.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='backend/js/plugins/jquery-ui/jquery.ui.mouse.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='backend/js/plugins/jquery-ui/jquery.ui.resizable.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='backend/js/plugins/jquery-ui/jquery.ui.sortable.min.js') }}"></script>
+	<!-- Touch enable for jquery UI -->
+	<script src="{{ url_for('static', filename='backend/js/plugins/touch-punch/jquery.touch-punch.min.js') }}"></script>
+    <!-- slimScroll -->
+    <script src="{{ url_for('static', filename='backend/js/plugins/slimscroll/jquery.slimscroll.min.js') }}"></script>
+    <!-- Bootstrap -->
+    <script src="{{ url_for('static', filename='backend/js/bootstrap.min.js') }}"></script>
+	<!-- vmap -->
+	<script src="{{ url_for('static', filename='backend/js/plugins/vmap/jquery.vmap.min.js') }}" ></script>
+	<script src="{{ url_for('static', filename='backend/js/plugins/vmap/jquery.vmap.world.js') }}" ></script>
+	<script src="{{ url_for('static', filename='backend/js/plugins/vmap/jquery.vmap.sampledata.js') }}" ></script>
+    <!-- Bootbox -->
+    <script src="{{ url_for('static', filename='backend/js/plugins/bootbox/jquery.bootbox.js') }}"></script>
+	<!-- Flot -->
+	<script src="{{ url_for('static', filename='backend/js/plugins/flot/jquery.flot.min.js') }}" ></script>
+	<script src="{{ url_for('static', filename='backend/js/plugins/flot/jquery.flot.bar.order.min.js') }}" ></script>
+	<script src="{{ url_for('static', filename='backend/js/plugins/flot/jquery.flot.pie.min.js') }}" ></script>
+	<script src="{{ url_for('static', filename='backend/js/plugins/flot/jquery.flot.resize.min.js') }}" ></script>
+    <!-- imagesLoaded -->
+    <script src="{{ url_for('static', filename='backend/js/plugins/imagesLoaded/jquery.imagesloaded.min.js') }}"></script>
+	<!-- PageGuide -->
+	<script src="{{ url_for('static', filename='backend/js/plugins/pageguide/jquery.pageguide.js') }}"></script>
+	<!-- FullCalendar -->
+	<script src="{{ url_for('static', filename='backend/js/plugins/fullcalendar/fullcalendar.min.js') }}"></script>
+	<!-- Chosen -->
+	<script src="{{ url_for('static', filename='backend/js/plugins/chosen/chosen.jquery.min.js') }}" ></script>
+	<!-- select2 -->
+	<script src="{{ url_for('static', filename='backend/js/plugins/select2/select2.min.js') }}"></script>
+    <!-- icheck -->
+    <script src="{{ url_for('static', filename='backend/js/plugins/icheck/jquery.icheck.min.js') }}" ></script>
+
+    <!-- Validation -->
+    <script src="{{ url_for('static', filename='backend/js/plugins/validation/jquery.validate.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='backend/js/plugins/validation/additional-methods.min.js') }}"></script>
+	<!-- dataTables -->
+	<script src="{{ url_for('static', filename='backend/js/plugins/datatable/jquery.dataTables.min.js') }}" ></script>
+	<script src="{{ url_for('static', filename='backend/js/plugins/datatable/TableTools.min.js') }}" ></script>
+	<script src="{{ url_for('static', filename='backend/js/plugins/datatable/ColReorder.min.js') }}" ></script>
+	<script src="{{ url_for('static', filename='backend/js/plugins/datatable/ColVis.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='backend/js/plugins/datatable/jquery.dataTables.columnFilter.js') }}" ></script>
+
+	<!-- Sparkline -->
+	<script src="{{ url_for('static', filename='backend/js/plugins/sparklines/jquery.sparklines.min.js') }}"></script>
+	<!-- Easy pie -->
+	<script src="{{ url_for('static', filename='backend/js/plugins/easy-pie-chart/jquery.easy-pie-chart.min.js') }}"></script>
+
+	<!-- XEditable -->
+	<script src="{{ url_for('static', filename='backend/js/plugins/momentjs/jquery.moment.js') }}"></script>
+	<script src="{{ url_for('static', filename='backend/js/plugins/mockjax/jquery.mockjax.js') }}"></script>
+	<script src="{{ url_for('static', filename='backend/js/plugins/xeditable/bootstrap-editable.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='backend/js/plugins/xeditable/demo.js') }}"></script>
+	<script src="{{ url_for('static', filename='backend/js/plugins/xeditable/address.js') }}"></script>
+
+    <!-- Theme framework -->
+    <script src="{{ url_for('static', filename='backend/js/eakroko.js') }}"></script>
+    <!-- Theme scripts -->
+    <script src="{{ url_for('static', filename='backend/js/application.min.js') }}"></script>
+    <!-- Just for demonstration -->
+    <script src="{{ url_for('static', filename='backend/js/demonstration.min.js') }}"></script>
+
+    <!-- HighCharts -->
+    <script src="{{ url_for('static', filename='backend/js/highcharts/highcharts.js') }}"></script>
+    <!-- <script src="{{ url_for('static', filename='backend/js/highcharts/highcharts-3d.js') }}"></script> -->
+    <script src="{{ url_for('static', filename='backend/js/highcharts/modules/exporting.js') }}"></script>
+    <!-- <script src="{{ url_for('static', filename='backend/js/highcharts/themes/sand-signika.js') }}"></script> -->
+
+    <!-- scrollup -->
+    <script src="{{ url_for('static', filename='backend/js/plugins/modernizr.js') }}"></script>
+    <!-- tip on top -->
+    <script src="{{ url_for('static', filename='backend/js/overhang.js') }}"></script>
+    <script src="{{ url_for('static', filename='backend/js/jquery-ui.min.js') }}"></script>
+
+
+
+    <!--[if lte IE 9]>
+		<script src="js/plugins/placeholder/jquery.placeholder.min.js" ></script>
+		<script>
+			$(document).ready(function() {
+
+				$('input, textarea').placeholder();
+			});
+		</script>
+	<![endif]-->
+</head>
+
+<body data-layout-sidebar="fixed" data-layout-topbar="fixed">
+
+    <div id="navigation">
+        <div class="container-fluid">
+            <a href="/mgm/home" id="brand">MGM</a>
+            <a href="#" class="toggle-nav" rel="tooltip" data-placement="bottom" title="Toggle navigation"><i class="icon-reorder"></i></a>
+{#            <ul class='main-nav'>#}
+{#                {% for porject in session['project'] %}#}
+{#                    {% if porject == session['current_project'] %}#}
+{#                        <li class="active">#}
+{#                    {% else %}#}
+{#                        <li>#}
+{#                    {% endif %}#}
+{#                        <a href="/project/{{ porject |replace('.','') }}">#}
+{#                        <a href="{{ session['current_url_path'] }}?project={{ porject |urlencode}}"/>#}
+{#                            <span>{{ porject }}</span>#}
+{#                        </a>#}
+{#                    </li>#}
+{#                {% endfor %}#}
+{##}
+{##}
+{#            </ul>#}
+
+            <div class="user">
+                <div class="dropdown">
+                    <a href="#" class='dropdown-toggle' data-toggle="dropdown">{% if session['username'] %}
+                    {{ session['username'] }}
+                        {% else %}
+                        None
+                    {% endif %} <img
+                            src="{{ url_for('static', filename='backend/img/demo/user-yc.jpg') }}" alt=""></a>
+                    <ul class="dropdown-menu pull-right">
+                        <li>
+                            <a href="/mgm/logout">退出</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid" id="content">
+        <div id="left">
+
+            <div class="subnav">
+                <div class="subnav-title">
+                    <a href="#" class='toggle-subnav'><i class="icon-angle-down"></i><span>统计</span></a>
+                </div>
+                <ul class="subnav-menu">
+
+                    <li>
+                        <a href="#">统计信息</a>
+                    </li>
+
+                </ul>
+            </div>
+
+            <div class="subnav">
+                <div class="subnav-title">
+                    <a href="#" class='toggle-subnav'><i class="icon-angle-down"></i><span>用户管理</span></a>
+                </div>
+                <ul class="subnav-menu">
+                    <li>
+                        <a href="/mgm/user/list">编辑用户</a>
+                    </li>
+                    <li>
+                        <a href="/mgm/user/permission">权限管理</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="subnav">
+                <div class="subnav-title">
+                    <a href="#" class='toggle-subnav'><i class="icon-angle-down"></i><span>投票管理</span></a>
+                </div>
+                <ul class="subnav-menu">
+                    <li>
+                        <a href="/mgm/voting/list"  >活动状态</a>
+                    </li>
+                    <li>
+                        <a href="/mgm/voting/add" >添加活动</a>
+{#                        <ul class="dropdown-menu">#}
+{#                            <li>#}
+{#                                <a href="/statistic/individual?project={{ session['current_project'] |urlencode}}">Individual Status</a>#}
+{#                            </li>#}
+{#                            <li>#}
+{#                                <a href="/statistic/automation?project={{ session['current_project'] |urlencode}}">Automation Trend</a>#}
+{#                            </li>#}
+{#                        </ul>#}
+                    </li>
+
+                    <li>
+                        <a href="#" >活动统计</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="subnav">
+                <div class="subnav-title">
+                    <a href="#" class='toggle-subnav'><i class="icon-angle-down"></i><span>证据管理</span></a>
+                </div>
+                <ul class="subnav-menu">
+                    <li>
+                        <a href="/config">分类设置</a>
+                    </li>
+                    <li>
+                        <a href="/config/add">证据上传</a>
+                    </li>
+                    <li class='dropdown'>
+                        <a id="leftcompnav" href="#" data-toggle="dropdown" >证据展示</a>
+                        <ul class="dropdown-menu" id="leftnav_complist">
+
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+
+
+            <div class="subnav">
+                <div class="subnav-title">
+                    <a href="#" class='toggle-subnav'><i class="icon-angle-down"></i><span>诉求管理</span></a>
+                </div>
+                <ul class="subnav-menu">
+                    <li class='dropdown'>
+                        <a href="#" data-toggle="dropdown">问题汇总</a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="#">XXXXXXXX</a>
+                            </li>
+                            <li>
+                                <a href="#">XXXXXXXX</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class='dropdown'>
+                        <a href="#" data-toggle="dropdown">问题编辑</a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="#">Power on</a>
+                            </li>
+                            <li>
+                                <a href="#">Power on</a>
+                            </li>
+                            <li>
+                                <a href="#">Reset</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+        <div id="main" style="margin-left: 200px;">
+            {% block content -%}
+            {%- endblock content %}
+        </div>
+    </div>
+
+
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="box">
+                <span id="tip"></span>
+            </div>
+        </div>
+    </div>
+    <a href="#0" class="cd-top"><i class="icon-arrow-up"></i></a>
+
+
+
+
+    {% block scripts %}
+    {%- endblock scripts %}
+
+    {% block define_scripts %}
+    {%- endblock define_scripts %}
+
+</body>
+
+</html>
+

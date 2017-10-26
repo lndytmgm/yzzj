@@ -1,0 +1,48 @@
+{% extends "common/base.html" %}
+
+{% block head %}
+<!-- JS issue_submit user -->
+<script type="text/javascript" src="{{ url_for('static', filename='index/assets/js/mgm_issue_submit.js') }}"></script>
+{%- endblock head %}
+
+{% block body_content -%}
+
+<div class="container">
+	<div class="row-fluid">
+
+        <!-- Horizontal Forms and Input, Textarea -->
+        <div class="row-fluid margin-bottom-20">
+
+
+			<!-- Input and Textarea-->
+            <div class="6">
+				<div class="headline"><h3>业主反馈问题 提交入口</h3></div>
+            	<form name="issue_submit"/>
+                    <label>问题标题</label>
+				    <input class="span6 border-radius-none" type="text" placeholder="请使用尽量简短的文字描述清楚" id="issue_title"/>
+                    <label>问题详情描述</label>
+				    <textarea class="span12 border-radius-none" rows="15" id="issue_desc"></textarea>
+
+                    <button type="button" class="btn-u pull-right" id="btn_issue_submit">提交</button>
+                    <a class="btn-u btn-u-sea pull-left" href="/issue/list">返回问题列表</a>
+                </form>
+            </div>
+
+        </div><!--/row-fluid-->
+
+            <hr />
+            <div>
+                <p class="color-red" id="message_info" ></p>
+            </div>
+        <!--//End Horizontal Forms -->
+    </div>
+</div><!--/container-fluid-->
+<!-- End Content Part -->
+
+
+{%- endblock body_content %}
+
+
+{% block initjs -%}
+        issue_submit();
+{%- endblock initjs %}
