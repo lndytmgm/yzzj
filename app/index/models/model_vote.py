@@ -28,17 +28,39 @@ def get_vote_info(vote_id):
     return rt,data
 
 
-def update_vote_info(vote_id):
+
+
+def update_vote_info(vote_id,item_text,house):
     print'__name__==', __name__,':',sys._getframe().f_code.co_name
+    print vote_id,item_text,house
     rt = False
 
+    new_item =[]
     try:
-        listtmp = db.session.query(Voting).filter(Voting.id==vote_id).first()
-        rt = True
-        print eval(listtmp.vote_items)
-        listtmp.vote_items = eval(listtmp.vote_items)
+        rt,vote_item_info = get_vote_info(vote_id)
+        for i in vote_item_info.vote_items:
+            # print i['vote']
+            # print i['text']
+            # print i['vote_user']
+            # print '===='
 
-        data = listtmp
+            if house in i['vote_user']:
+                print rt,'already vote it'
+                return rt,'already vote it'
+
+            if item_text == i['text']:
+                print 'zhao dao le'
+                i['vote'] +=1
+                i['vote_user'].append(house)
+                # print i['vote_user']
+
+            new_item.append(i)
+
+        update_count = db.session.query(Voting).filter(Voting.id==vote_id).update({Voting.vote_items:str(new_item)})
+        print update_count
+        db.session.commit()
+        rt = True
+        data = vote_item_info
     except Exception,e:
         print e.message
         data = e.message
@@ -46,5 +68,5 @@ def update_vote_info(vote_id):
     finally:
         db.session.close()
 
-    # print data
+    print rt,data
     return rt,data

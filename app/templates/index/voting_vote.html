@@ -1,7 +1,7 @@
 {% extends "common/base.html" %}
 
 {% block head %}
-
+<script type="text/javascript" src="{{ url_for('static', filename='index/assets/js/mgm_vote.js') }}"></script>
 {%- endblock head %}
 
 {% block body_content -%}
@@ -35,7 +35,7 @@
                 {% endfor %}
 
             <hr />
-            <p><a class="btn-u btn-u-large" href="/voting/voted/{{ vote_info.id }}" id="btn_voted" >我要投票</a> </p>
+            <p><a class="btn-u btn-u-large" href="#" onclick="vote_this_item({{ vote_info.id }})" >我要投票</a> </p>
             <hr />
             <p class="color-red" id="message_info" ></p>
             </div>
@@ -49,5 +49,5 @@
 
 
 {% block initjs -%}
-
+{#        vote_this_item();#}
 {%- endblock initjs %}
