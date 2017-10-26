@@ -54,10 +54,14 @@ def update_vote_info(vote_id,item_text,house):
                 i['vote'] +=1
                 i['vote_user'].append(house)
                 # print i['vote_user']
+                vote_item_info.vote = vote_item_info.vote+ 1
+                print vote_item_info.vote
+
 
             new_item.append(i)
 
-        update_count = db.session.query(Voting).filter(Voting.id==vote_id).update({Voting.vote_items:str(new_item)})
+        # update_count = db.session.query(Voting).filter(Voting.id==vote_id).update({Voting.vote_items:str(new_item)})
+        update_count = db.session.query(Voting).filter(Voting.id==vote_id).update({Voting.vote_items:str(new_item),Voting.vote:vote_item_info.vote})
         print update_count
         db.session.commit()
         rt = True
