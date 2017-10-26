@@ -36,8 +36,8 @@ def regist():
 def renzheng():
     print'__name__==', __name__,':',sys._getframe().f_code.co_name
     if 'haslogin' not in session:
-        return redirect(url_for('index.login'))
+        return redirect(url_for('login'))
     if session['haslogin'] == False:
-        return redirect(url_for('index.login'))
+        return redirect(url_for('login'))
 
     return render_template('index/renzheng.html')
