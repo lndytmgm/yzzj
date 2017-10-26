@@ -26,9 +26,9 @@ def vote_for_issue(issue_id):
     #     return jsonify({'result': 'False','message': '/login','status':code})
 
     # if 'haslogin' not in session:
-    #     return redirect(url_for('index.login'))
+    #     return redirect(url_for('login'))
     # if session['haslogin'] == False:
-    #     return redirect(url_for('index.login'))
+    #     return redirect(url_for('login'))
 
     rt,data = vote_issue(issue_id)
     # rt,data = True,'333'
@@ -47,9 +47,9 @@ def vote_for_issue(issue_id):
 def issue_detail(issue_id):
     print'__name__==', __name__,':',sys._getframe().f_code.co_name
     if 'haslogin' not in session:
-        return redirect(url_for('index.login'))
+        return redirect(url_for('login'))
     if session['haslogin'] == False:
-        return redirect(url_for('index.login'))
+        return redirect(url_for('login'))
 
     print issue_id
     rt,data = get_issue_detail(issue_id)
@@ -64,9 +64,9 @@ def issue_detail(issue_id):
 def issue_list():
     print'__name__==', __name__,':',sys._getframe().f_code.co_name
     if 'haslogin' not in session:
-        return redirect(url_for('index.login'))
+        return redirect(url_for('login'))
     if session['haslogin'] == False:
-        return redirect(url_for('index.login'))
+        return redirect(url_for('login'))
 
     rt = get_issue_list()
 
@@ -78,9 +78,9 @@ def issue_list():
 def issue_submit():
     print'__name__==', __name__,':',sys._getframe().f_code.co_name
     if 'haslogin' not in session:
-        return redirect(url_for('index.login'))
+        return redirect(url_for('login'))
     if session['haslogin'] == False:
-        return redirect(url_for('index.login'))
+        return redirect(url_for('login'))
     return render_template('index/issue_submit.html')
 
 
