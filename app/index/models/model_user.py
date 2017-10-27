@@ -66,8 +66,8 @@ def update_renzheng(loginname,filepath):
     print loginname,filepath
     rt =False
     try:
-        update_auth_status = db.session.query(User).filter(User.phone==loginname).update({User.auth_status:'审核中'})
-        update_regist_pic = db.session.query(User).filter(User.phone==loginname).update({User.regist_pic:filepath})
+        update_auth_status = db.session.query(User).filter(User.username==loginname).update({User.auth_status:u'审核中'})
+        update_regist_pic = db.session.query(User).filter(User.username==loginname).update({User.regist_pic:filepath})
         print update_auth_status,update_regist_pic
         db.session.commit()
         rt = True
@@ -83,7 +83,7 @@ def get_auth_status(loginname):
     print loginname
     rt =False
     try:
-        user_auth = db.session.query(User).filter(User.phone==loginname).first()
+        user_auth = db.session.query(User).filter(User.username==loginname).first()
 
         rt = True
         data = user_auth.auth_status

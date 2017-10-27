@@ -41,7 +41,6 @@
                     {% elif session['renzheng']=='已认证' %}
                         <label class="checkbox color-red" id="message_info" >&nbsp; 认证已通过!</label>
                         <button class="btn-u pull-right" type="button" id="upload" disabled>无需上传</button>
-
                     {% else %}
                         <label class="checkbox color-red" id="message_info" >&nbsp; 选择图片后，点击右侧按钮，完成认证</label>
                         <button class="btn-u pull-right" type="button" id="upload" >上传图片</button>
@@ -153,9 +152,11 @@
 <script type="text/javascript" src="{{ url_for('static', filename='index/assets/plugins/parallax-slider/js/modernizr.js') }}"></script>
 <script type="text/javascript" src="{{ url_for('static', filename='index/assets/plugins/parallax-slider/js/jquery.cslider.js') }}"></script>
 <script type="text/javascript" src="{{ url_for('static', filename='index/assets/plugins/bxslider/jquery.bxslider.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='index/assets/js/mgm_upload.js') }}"></script>
 {%- endblock scripts %}
 
 {% block initjs %}
     App.initBxSlider1();
     Index.initParallaxSlider();
+    uploadfile();
 {%- endblock initjs %}

@@ -31,14 +31,11 @@ def admin_login():
             session['level'] = user.level
             session['haslogin'] = True
 
-            # rt,message,user_permission_dict = mgt_operation.MgtOperator().get_login_account(user.account)
-            # print "******************************************"
-            # print user_permission_dict
-            # print "******************************************"
-            # session['project'] = str(user_permission_dict['project']).split(',')
-            # session['current_project'] = session['project'][0]
-            # print session['project']
-            return redirect(url_for('admin_home'))
+            if user.level >=2:
+
+                return redirect(url_for('admin_home'))
+            else:
+                return render_template('backend/login.html', form=form)
 
     elif request.method == 'GET':
         return render_template('backend/login.html', form=form)

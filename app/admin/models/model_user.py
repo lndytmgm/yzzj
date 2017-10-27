@@ -11,7 +11,7 @@ def update_user_auth_status(phone):
     print phone
     rt =False
     try:
-        new_user = db.session.query(User).filter(User.phone==phone).update({User.auth_status:'已认证'})
+        new_user = db.session.query(User).filter(User.phone==phone).update({User.auth_status:u'已认证'})
 
         print new_user,
         db.session.commit()

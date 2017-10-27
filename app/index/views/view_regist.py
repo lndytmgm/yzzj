@@ -5,7 +5,7 @@
 from flask import session,redirect,url_for,request,abort,make_response,jsonify
 from app import app, ALLOWED_EXTENSIONS
 from werkzeug.utils import secure_filename
-import os
+import os,uuid
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
@@ -70,14 +70,16 @@ def api_upload():
     f=request.files['myfile']
     if f and allowed_file(f.filename):
         fname=secure_filename(f.filename)
+        uuid_str = str(uuid.uuid1()).replace('-', '')
         print fname
-
-        new_filepath =  os.path.join(file_dir,fname)
+        print str(f.filename).split('.')[-1]
+        new_filepath =  os.path.join(file_dir,uuid_str+'.'+str(f.filename).split('.')[-1])
         print new_filepath
         print f.save(new_filepath)
 
-        session['renzheng'] = '审核中'
-        rt,data = update_renzheng(session['username'],fname)
+        session['renzheng'] = u'审核中'
+
+        rt,data = update_renzheng(session['username'],uuid_str+'.'+str(f.filename).split('.')[-1])
         if rt == True:
             return jsonify({"code":0,"message":data})
         else:
