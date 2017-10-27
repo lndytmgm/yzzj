@@ -6,10 +6,14 @@ from app import app
 @app.route('/')
 def home():
     print'__name__==', __name__,':',sys._getframe().f_code.co_name
-    print session['username']
-    print session['house']
-    print session['haslogin']
-    print session['renzheng']
+    try:
+
+        print session['username']
+        print session['house']
+        print session['haslogin']
+        print session['renzheng']
+    except Exception,e:
+        print e.message
 
 
     return render_template('index/index.html')
