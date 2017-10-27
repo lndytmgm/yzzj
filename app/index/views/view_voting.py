@@ -74,8 +74,16 @@ def voting_vote(vote_id):
 
     rt,vote_info = get_vote_info(vote_id)
 
+    item_list = []
+    for item in vote_info.vote_items:
+        print item
+
+        item_list.append({'name':item['text'],'data':[item['vote']]})
+
+
+    print item_list
     print rt,vote_info
-    return render_template('index/voting_vote.html',vote_info=vote_info)
+    return render_template('index/voting_vote.html',vote_info=vote_info,item_list=item_list)
 
 
 

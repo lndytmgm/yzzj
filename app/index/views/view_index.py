@@ -8,6 +8,10 @@ def home():
     print'__name__==', __name__,':',sys._getframe().f_code.co_name
     return render_template('index/index.html')
 
+@app.route('/coming_soon')
+def coming_soon():
+    print'__name__==', __name__,':',sys._getframe().f_code.co_name
+    return render_template('index/coming_soon.html')
 
 @app.route('/login')
 def login():

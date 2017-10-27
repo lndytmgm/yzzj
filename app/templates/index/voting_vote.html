@@ -2,6 +2,12 @@
 
 {% block head %}
 <script type="text/javascript" src="{{ url_for('static', filename='index/assets/js/mgm_vote.js') }}"></script>
+    <!-- HighCharts -->
+
+{#    <!-- <script src="{{ url_for('static', filename='index/assets/js/highcharts/highcharts-3d.js') }}"></script> -->#}
+{#    <script src="{{ url_for('static', filename='index/assets/plugins/highcharts/modules/exporting.js') }}"></script>#}
+{#    <!-- <script src="{{ url_for('static', filename='index/assets/js/highcharts/themes/sand-signika.js') }}"></script> -->    #}
+
 {%- endblock head %}
 
 {% block body_content -%}
@@ -35,9 +41,18 @@
                 {% endfor %}
 
             <hr />
-            <p><a class="btn-u btn-u-large" href="#" onclick="vote_this_item({{ vote_info.id }})" >我要投票</a> </p>
+            <p>
+                <a class="btn-u btn-u-large" href="#" onclick="vote_this_item({{ vote_info.id }})" >我要投票</a>
+                <a class="btn-u btn-u-large btn-u-sea" href="/voting/list" >返回列表</a>
+            </p>
             <hr />
             <p class="color-red" id="message_info" ></p>
+
+            <div id="item_chart">
+
+
+            </div>
+
             </div>
 
 
@@ -48,6 +63,7 @@
 {%- endblock body_content %}
 
 
+
 {% block initjs -%}
-{#        vote_this_item();#}
+        set_vote_item_chart('{{ vote_info.title }}',{{ item_list|tojson }});
 {%- endblock initjs %}
