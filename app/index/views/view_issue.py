@@ -51,6 +51,10 @@ def issue_detail(issue_id):
     if session['haslogin'] == False:
         return redirect(url_for('login'))
 
+    if not session['renzheng'] == u'已认证':
+        return redirect(url_for('renzheng'))
+
+
     print issue_id
     rt,data = get_issue_detail(issue_id)
 
@@ -67,6 +71,8 @@ def issue_list():
         return redirect(url_for('login'))
     if session['haslogin'] == False:
         return redirect(url_for('login'))
+    if not session['renzheng'] == u'已认证':
+        return redirect(url_for('renzheng'))
 
     rt = get_issue_list()
 
@@ -81,6 +87,9 @@ def issue_submit():
         return redirect(url_for('login'))
     if session['haslogin'] == False:
         return redirect(url_for('login'))
+    if not session['renzheng'] == u'已认证':
+        return redirect(url_for('renzheng'))
+
     return render_template('index/issue_submit.html')
 
 

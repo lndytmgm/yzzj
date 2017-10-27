@@ -62,8 +62,10 @@
 
 {%- endblock body_content %}
 
-
+{% block scripts %}
+<script type="text/javascript" src="{{ url_for('static', filename='index/assets/plugins/highcharts/highcharts.js') }}"></script>
+{%- endblock scripts %}
 
 {% block initjs -%}
-        set_vote_item_chart('{{ vote_info.title }}',{{ item_list|tojson }});
+        set_vote_item_chart('{{ vote_info.title }}','{{ vote_info.vote }}',{{ item_list|tojson }});
 {%- endblock initjs %}

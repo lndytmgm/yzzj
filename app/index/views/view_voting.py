@@ -1,4 +1,6 @@
-# codding:utf-8
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
 from flask import render_template,session,redirect,url_for,request,abort,make_response,jsonify
 import sys
 from app import app
@@ -56,6 +58,8 @@ def index_voting_lisft():
         return redirect(url_for('login'))
     if session['haslogin'] == False:
         return redirect(url_for('login'))
+    if not session['renzheng'] == u'已认证':
+        return redirect(url_for('renzheng'))
 
     votinglist = get_voting_list()
 
@@ -71,6 +75,8 @@ def voting_vote(vote_id):
         return redirect(url_for('login'))
     if session['haslogin'] == False:
         return redirect(url_for('login'))
+    if not session['renzheng'] == u'已认证':
+        return redirect(url_for('renzheng'))
 
     rt,vote_info = get_vote_info(vote_id)
 

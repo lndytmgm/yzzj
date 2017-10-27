@@ -29,6 +29,7 @@
     <!-- CSS Theme -->
     <link rel="stylesheet" href="{{ url_for('static', filename='index/assets/css/themes/default.css') }}" id="style_color" />
 
+
     {% block head %} {%- endblock head %}
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
@@ -122,9 +123,9 @@
 
                         <li>
                             {%  if session['haslogin']==True %}
-                                {%  if session['renzheng']==True %}
-                                    <a href="/login" class="dropdown-toggle" data-toggle="dropdown">{{ session['username'] }}-已认证<b class="caret"></b></a>
-                                {% elif session['renzheng']=='doing' %}
+                                {%  if session['renzheng']=='已认证' %}
+                                    <a href="/login" class="dropdown-toggle" data-toggle="dropdown">{{ session['username'] }}-{{ session['renzheng'] }}<b class="caret"></b></a>
+                                {% elif session['renzheng']=='审核中' %}
                                     <a href="/login" class="dropdown-toggle" data-toggle="dropdown">{{ session['username'] }}-认证审核中<b class="caret"></b></a>
                                 {% else  %}
                                     <a href="/login" class="dropdown-toggle" data-toggle="dropdown">{{ session['username'] }}-未认证<b class="caret"></b></a>
@@ -162,6 +163,8 @@
 </div><!--/copyright-->
 <!--=== End Copyright ===-->
 
+
+
 <!-- JS Global Compulsory -->
 <script type="text/javascript" src="{{ url_for('static', filename='index/assets/js/jquery-1.8.2.min.js') }}"></script>
 <script type="text/javascript" src="{{ url_for('static', filename='index/assets/js/modernizr.custom.js') }}"></script>
@@ -172,17 +175,23 @@
 <script type="text/javascript" src="{{ url_for('static', filename='index/assets/plugins/fancybox/source/jquery.fancybox.pack.js') }}"></script>
 <script type="text/javascript" src="{{ url_for('static', filename='index/assets/plugins/revolution_slider/rs-plugin/js/jquery.themepunch.plugins.min.js') }}"></script>
 <script type="text/javascript" src="{{ url_for('static', filename='index/assets/plugins/revolution_slider/rs-plugin/js/jquery.themepunch.revolution.min.js') }}"></script>
+
+{% block scripts %}{%- endblock scripts %}
+
 <!-- JS Page Level -->
 <script type="text/javascript" src="{{ url_for('static', filename='index/assets/js/app.js') }}"></script>
 <script type="text/javascript" src="{{ url_for('static', filename='index/assets/js/pages/index.js') }}"></script>
 
-<script type="text/javascript" src="{{ url_for('static', filename='index/assets/plugins/highcharts/highcharts.js') }}"></script>
+
+
+
+
 <script type="text/javascript">
     jQuery(document).ready(function() {
       	App.init();
-        App.initFancybox();
+{#        App.initFancybox();#}
         App.initSliders();
-        Index.initRevolutionSlider();
+{#        Index.initRevolutionSlider();#}
 
         {% block initjs %} {%- endblock initjs %}
     });

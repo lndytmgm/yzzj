@@ -1,40 +1,20 @@
 {% extends "common/base.html" %}
 
 {% block head %}
-<!-- JS regist user -->
-<script type="text/javascript" src="{{ url_for('static', filename='index/assets/js/mgm_upload.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index/assets/plugins/parallax-slider/css/parallax-slider.css') }}" type="text/css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='index/assets/plugins/bxslider/jquery.bxslider.css') }}" />
+
 {%- endblock head %}
 
-{% block body_content -%}
-
+{% block body_content %}
 
 <!--=== Content Part ===-->
-<div class="body" style="background:url({{ url_for('static', filename='index/assets/img/breadcrumbs.png') }}) repeat;">
+<div class="container">
 
-
-	<div class="container" >
-		<div class="row-fluid margin-bottom-60" style="margin-top:100px">
+    <div class="row-fluid margin-bottom-60" style="margin-top:100px">
 
         	<form class="reg-page" id="renzheng_form" enctype="multipart/form-data" />
-            	<h3>鲁能公众号 业主实名认证</h3>
-{#                <div class="controls">#}
-{##}
-{#                    <label>上传鲁能公众号认证截图 <span class="color-red">*</span></label>#}
-{#                    <div class="input-append">#}
-{#                        <input type="text" class="span12 search-query" />#}
-{#                        <button type="button" class="btn-u btn-u-sea"> 选 择</button>#}
-{##}
-{#                    </div>#}
-{#                </div>#}
-
-
-{#                    <div class="controls">#}
-{#                        <div class="fileupload fileupload-new" data-provides="fileupload">#}
-{#                            <span class="btn btn-file"><input type="file" /></span>#}
-{#                            <span class="fileupload-preview"></span>#}
-{##}
-{#                        </div>#}
-{#                    </div>#}
+            	<h3>鲁能-钓鱼台-美高梅 业主实名认证</h3>
 
                 <div class="controls">
                     <div class="input-append">
@@ -43,43 +23,139 @@
                     </div>
                 </div>
 
-                <div class="controls">
-
-                    <label><span class="color-red">公众号截图示例如下: </span></label>
-                    <div class="input-append">
-                        <img src="{{ url_for('static', filename='index/assets/img/renzheng.jpg') }}" alt="" />
-
-
-                    </div>
-                </div>
+{#                <div class="controls">#}
+{##}
+{#                    <label><span class="color-red">公众号截图示例如下: </span></label>#}
+{#                    <div class="input-append">#}
+{#                        <img src="{{ url_for('static', filename='index/assets/img/renzheng.jpg') }}" alt="" />#}
+{##}
+{#                    </div>#}
+{#                </div>#}
 
 
                 <hr />
                 <div class="controls form-inline">
-                    {% if session['renzheng']=='doing' %}
-                        <label class="checkbox">&nbsp; 业主身份正在审核中，请耐心等待！</label>
+                    {% if session['renzheng']=='审核中' %}
+                        <label class="checkbox color-red" id="message_info" >&nbsp; 业主身份正在审核中，请耐心等待！</label>
                         <button class="btn-u pull-right" type="button" id="upload" disabled>审核中</button>
+                    {% elif session['renzheng']=='已认证' %}
+                        <label class="checkbox color-red" id="message_info" >&nbsp; 认证已通过!</label>
+                        <button class="btn-u pull-right" type="button" id="upload" disabled>无需上传</button>
+
                     {% else %}
-                        <label class="checkbox">&nbsp; 选择截图后，点击右侧按钮，完成认证</label>
-                        <button class="btn-u pull-right" type="button" id="upload" >上传截图</button>
+                        <label class="checkbox color-red" id="message_info" >&nbsp; 选择图片后，点击右侧按钮，完成认证</label>
+                        <button class="btn-u pull-right" type="button" id="upload" >上传图片</button>
                     {% endif %}
                 </div>
-                <hr />
-                <p class="color-red" id="message_info" ></p>
+
             </form>
 
 
         </div><!--/row-fluid-->
-	</div><!--/container-->
-
-</div><!--/body-->
-<!--=== End Content Part ===-->
 
 
+
+
+
+
+
+	<!-- Recent Works -->
+    <div class="headline"><h3>任选以下其中一种认证方式</h3></div>
+    <div class="row-fluid margin-bottom-40">
+        <ul id="list" class="bxslider recent-work">
+            <li>
+                <a href="#">
+                	<em class="overflow-hidden"><img src="{{ url_for('static', filename='index/assets/img/carousel/2.jpg') }}" alt="" /></em>
+                    <span>
+                        <strong>鲁能公证号</strong>
+                        <i>需房主认证页截图</i>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                	<em class="overflow-hidden"><img src="{{ url_for('static', filename='index/assets/img/carousel/9.jpg') }}" alt="" /></em>
+                    <span>
+                        <strong>购房合同</strong>
+                        <i>需含房号签字页截图</i>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                	<em class="overflow-hidden"><img src="{{ url_for('static', filename='index/assets/img/carousel/4.jpg') }}" alt="" /></em>
+                    <span>
+                        <strong>首付收据</strong>
+                        <i>需完整签字收据截图</i>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                	<em class="overflow-hidden"><img src="{{ url_for('static', filename='index/assets/img/carousel/5.jpg') }}" alt="" /></em>
+                    <span>
+                        <strong>收房通知书</strong>
+                        <i>Craft labore wes anderson cred</i>
+                    </span>
+                </a>
+            </li>
+{#            <li>#}
+{#                <a href="#">#}
+{#                	<em class="overflow-hidden"><img src="{{ url_for('static', filename='index/assets/img/carousel/6.jpg') }}" alt="" /></em>#}
+{#                    <span>#}
+{#                        <strong>Happy New Year</strong>#}
+{#                        <i>Anim pariatur cliche reprehenderit</i>#}
+{#                    </span>#}
+{#                </a>#}
+{#            </li>#}
+{#            <li>#}
+{#                <a href="#">#}
+{#                	<em class="overflow-hidden"><img src="{{ url_for('static', filename='index/assets/img/carousel/7.jpg') }}" alt="" /></em>#}
+{#                    <span>#}
+{#                        <strong>Award Winning Agency</strong>#}
+{#                        <i>Responsive Bootstrap Template</i>#}
+{#                    </span>#}
+{#                </a>#}
+{#            </li>#}
+{#            <li>#}
+{#                <a href="#">#}
+{#                	<em class="overflow-hidden"><img src="{{ url_for('static', filename='index/assets/img/carousel/8.jpg') }}" alt="" /></em>#}
+{#                    <span>#}
+{#                        <strong>Wolf Moon Officia</strong>#}
+{#                        <i>Pariatur prehe cliche reprehrit</i>#}
+{#                    </span>#}
+{#                </a>#}
+{#            </li>#}
+{#            <li>#}
+{#                <a href="#">#}
+{#                	<em class="overflow-hidden"><img src="{{ url_for('static', filename='index/assets/img/carousel/9.jpg') }}" alt="" /></em>#}
+{#                    <span>#}
+{#                        <strong>Food Truck Quinoa Nesciunt</strong>#}
+{#                        <i>Craft labore wes anderson cred</i>#}
+{#                    </span>#}
+{#                </a>#}
+{#            </li>#}
+        </ul>        
+	</div><!--/row-->
+	<!-- //End Recent Works -->
+
+
+
+
+
+</div><!--/container-->
+<!-- End Content Part -->
 {%- endblock body_content %}
 
 
 
-{% block initjs -%}
-        uploadfile();
+{% block scripts %}
+<script type="text/javascript" src="{{ url_for('static', filename='index/assets/plugins/parallax-slider/js/modernizr.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='index/assets/plugins/parallax-slider/js/jquery.cslider.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='index/assets/plugins/bxslider/jquery.bxslider.js') }}"></script>
+{%- endblock scripts %}
+
+{% block initjs %}
+    App.initBxSlider1();
+    Index.initParallaxSlider();
 {%- endblock initjs %}
