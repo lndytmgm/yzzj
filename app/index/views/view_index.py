@@ -37,6 +37,7 @@ def logout():
     session.pop('haslogin', None)
     session.pop('renzheng', None)
     session.pop('username', None)
+    session.pop('house', None)
     return render_template('index/index.html')
 
 

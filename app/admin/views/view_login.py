@@ -28,6 +28,7 @@ def admin_login():
             user = User.query.filter_by(phone = form.account.data).first()
             print user
             session['username'] = user.username
+            session['house'] = user.house
             session['level'] = user.level
             session['haslogin'] = True
 
@@ -48,5 +49,6 @@ def admin_logout():
     session.pop('haslogin', None)
     session.pop('username', None)
     session.pop('level', None)
+    session.pop('house', None)
 
     return redirect(url_for('admin_login'))

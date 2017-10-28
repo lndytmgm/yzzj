@@ -47,7 +47,7 @@
 											<td>{{ user.house }}</td>
 											<td>{{ user.regist_date }}</td>
 											<td>{{ user.auth_status }}</td>
-											<td>{% if user.regist_pic == None %}{% else %}{{ user.regist_pic }}{% endif %}</td>
+											<td>{% if user.regist_pic == None %}{% else %}<a href="/static/upload/img/{{ user.regist_pic }}" target="_blank">{{ user.regist_pic }}</a>{% endif %}</td>
 											<td>{% if user.level == 1 %}业主{% else %}管理员{% endif %}</td>
 											<td><a href="###" class="btn btn-mini btn-primary" id="btn_reset_pwd'" onclick="reset_pwd('{{ user.phone }}')"><i class="icon-retweet"></i>重置密码</a></td>
                                             <td><a href="/mgm/user/detail/{{ user.phone }}" class="btn btn-mini btn-primary" target="_blank"><i class="icon-edit"></i>编辑</a></td>
