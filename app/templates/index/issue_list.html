@@ -19,10 +19,11 @@
                     <thead>
                         <tr>
                             <th style="width: 20px;text-align: center">#</th>
-                            <th style="text-align: center">标题</th>
+                            <th style="width: 250px;text-align: center">标题</th>
+                            <th style="text-align: center">详细描述</th>
                             <th style="width: 100px;text-align: center">提交日期</th>
                             <th style="width: 200px;text-align: center">开发商回复</th>
-                            <th style="width: 200px;text-align: center">政府部门回复</th>
+{#                            <th style="width: 200px;text-align: center">政府部门回复</th>#}
                             <th style="width: 40px;text-align: center">状态</th>
                             <th style="width: 30px;text-align: center">票数</th>
                             <th style="width: 80px;text-align: center">我支持</th>
@@ -33,9 +34,10 @@
                         <tr>
                             <td style="width: 20px;text-align: center">{{ issue.id }}</td>
                             <td><a href="/issue/detail/{{ issue.id }}"> {{ issue.title }}</a></td>
+                            <td>{{ issue.description }}</td>
                             <td style="width: 100px;text-align: center">{{ issue.create_date }}</td>
                             {% if issue.pic_kfs == None %}<td style="width: 200px"></td>{% else %}<td>{{ issue.pic_kfs }}</td>{% endif %}
-                            {% if issue.pic_zf == None %}<td style="width: 200px"></td>{% else %}<td>{{ issue.pic_zf }}</td>{% endif %}
+{#                            {% if issue.pic_zf == None %}<td style="width: 200px"></td>{% else %}<td>{{ issue.pic_zf }}</td>{% endif %}#}
                             <td style="width: 40px;text-align: center">{{ issue.status }}</td>
                             <td style="width: 30px;text-align: center">{{ issue.vote }}</td>
                             <td style="width: 80px;text-align: center"><a class="btn-u btn-u-small btn-u-green" href="#" onclick="vote_for_this({{ issue.id }})"><i class="icon-thumbs-up"></i> 支持</a></td>
@@ -57,6 +59,8 @@
 
 {%- endblock body_content %}
 
+<hr>
+<div></div>
 
 {% block initjs -%}
         issue_submit();
