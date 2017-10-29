@@ -215,11 +215,13 @@
                 </div>
                 <ul class="subnav-menu">
                     <li>
-                        <a href="/mgm/user/list">编辑用户</a>
+                        <a href="/mgm/user/list">用户列表</a>
                     </li>
+                    {% if session['level'] == 4 %}
                     <li>
                         <a href="/mgm/user/permission">权限管理</a>
                     </li>
+                    {% endif %}
                 </ul>
             </div>
 
