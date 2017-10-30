@@ -9,3 +9,4 @@ from views import view_user
 from views import view_login
 from views import view_home
 from views import view_voting
+from views import view_ziliao

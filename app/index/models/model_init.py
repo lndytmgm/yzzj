@@ -178,3 +178,18 @@ class Voting(db.Model):
                     pass
 
         return ret_data
+
+
+
+class ZL(db.Model):
+    __tablename__ = 'ziliao'
+    id = db.Column(db.Integer, primary_key=True)
+    filename = db.Column(db.String(200), unique=True, nullable=False)
+    description = db.Column(db.String(2000), nullable=False)
+    tag = db.Column(db.String(120), nullable=False)
+    type = db.Column(db.String(120))
+    create_date = db.Column(db.TIMESTAMP,server_default = func.now())
+    # who_zan = db.Column(db.String(2000))
+
+    def __repr__(self):
+        return '<ZL %r>' % self.filename
