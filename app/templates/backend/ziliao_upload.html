@@ -1,21 +1,24 @@
 {% extends "common/backend.html" %}StringField
 
+
+
 {% block content -%}
 				<div class="container-fluid">
                     <div class="row-fluid">
 						<div class="span12">
+
 							<div class="box box-color box-bordered ">
 								<div class="box-title">
 									<h3><i class="icon-file-alt"></i> 资料上传汇总</h3>
 								</div>
 								<div class="box-content nopadding">
-									<form action="#" method="POST" class='form-horizontal form-bordered'>
+									<form action="/mgm/ziliao/upload" method="post" class='form-horizontal form-bordered' id="ziliao_form" enctype="multipart/form-data" >
 										<div class="control-group">
 											<label for="textfield" class="control-label">选择文件</label>
 											<div class="controls">
 												<div class="fileupload fileupload-new" data-provides="fileupload">
 													<div class="input-append">
-														<div class="uneditable-input span3"><i class="icon-file fileupload-exists"></i> <span class="fileupload-preview"></span></div><span class="btn btn-file"><span class="fileupload-new">Select file</span><span class="fileupload-exists">Change</span><input type="file" name="aaaa" /></span><a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
+														<div class="uneditable-input span3"><i class="icon-file fileupload-exists"></i> <span class="fileupload-preview" id="file_name"></span></div><span class="btn btn-file"><span class="fileupload-new">Select file</span><span class="fileupload-exists">Change</span><input type="file" name="myfile" id="myfile" /></span><a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
 													</div>
 												</div>
 											</div>
@@ -25,7 +28,7 @@
 										<div class="control-group">
 											<label for="textfield" class="control-label">分类</label>
 											<div class="controls">
-												<select name="s2" id="s2" class='select2-me input-xlarge'>
+												<select name="file_type" id="file_type" class='select2-me input-xlarge'>
 													<option value="1">图片</option>
 													<option value="2">视频</option>
 													<option value="3">文档</option>
@@ -36,7 +39,7 @@
 										<div class="control-group">
 											<label for="textfield" class="control-label">标签</label>
 											<div class="controls">
-												<select name="s2" id="s2" class='select2-me input-xxlarge' multiple="multiple">
+												<select name="file_tag" id="file_tag" class='select2-me input-xxlarge' multiple="multiple">
 													<option value="1">绿化</option>
 													<option value="2">消防</option>
 													<option value="3">过道</option>
@@ -52,17 +55,52 @@
                                         <div class="control-group">
                                             <label for="textarea" class="control-label">描述</label>
                                             <div class="controls">
-                                                <textarea name="textarea" id="textarea" rows="5" class="input-block-level">XXXXXXXXXXXXXXXXXXXX </textarea>
+                                                <textarea name="file_description" id="file_description" rows="5" class="input-block-level">XXXXXXXXXXXXXXXXXXXX </textarea>
                                             </div>
+                                        </div>
+
+                                        <div class="form-actions">
+
+                                            <button type="submit" class="btn btn-primary" id="#">上传文件</button>
+
                                         </div>
 									</form>
 								</div>
 							</div>
 						</div>
 					</div>
+
+
+                    <div class="row-fluid">
+                        <div class="span12">
+                            <div class="form-actions">
+
+                                <button type="submit" class="btn btn-primary" id="#">上传文件</button>
+
+                            </div>
+                        </div>
+
+                        <div class="span12">
+                            <p class="color-red" id="message_info" ></p>
+                        </div>
+
+                    </div>
+
+
+
+
                 </div>
 {%- endblock content %}
 
 
+{% block scripts %}
+    <script src="{{ url_for('static', filename='backend/js/mgm_backend_ziliao.js') }}"></script>
+    <script type="text/javascript">
+    jQuery(document).ready(function() {
 
+{#        add_ziliao_file();#}
+
+    });
+</script>
+{%- endblock scripts %}
 

@@ -61,32 +61,40 @@
     <script src="{{ url_for('static', filename='backend/js/plugins/form/jquery.form.min.js') }}"></script>
     <!-- Nice Scroll -->
     <script src="{{ url_for('static', filename='backend/js/plugins/nicescroll/jquery.nicescroll.min.js') }}"></script>
-
+    <!-- imagesLoaded -->
+    <script src="{{ url_for('static', filename='backend/js/plugins/imagesLoaded/jquery.imagesloaded.min.js') }}"></script>
     <!-- jQuery UI -->
     <script src="{{ url_for('static', filename='backend/js/plugins/jquery-ui/jquery.ui.core.min.js') }}"></script>
     <script src="{{ url_for('static', filename='backend/js/plugins/jquery-ui/jquery.ui.widget.min.js') }}"></script>
     <script src="{{ url_for('static', filename='backend/js/plugins/jquery-ui/jquery.ui.mouse.min.js') }}"></script>
     <script src="{{ url_for('static', filename='backend/js/plugins/jquery-ui/jquery.ui.resizable.min.js') }}"></script>
     <script src="{{ url_for('static', filename='backend/js/plugins/jquery-ui/jquery.ui.sortable.min.js') }}"></script>
+
+
 	<!-- Touch enable for jquery UI -->
 	<script src="{{ url_for('static', filename='backend/js/plugins/touch-punch/jquery.touch-punch.min.js') }}"></script>
     <!-- slimScroll -->
     <script src="{{ url_for('static', filename='backend/js/plugins/slimscroll/jquery.slimscroll.min.js') }}"></script>
+
     <!-- Bootstrap -->
     <script src="{{ url_for('static', filename='backend/js/bootstrap.min.js') }}"></script>
+    <!-- Bootbox -->
+    <script src="{{ url_for('static', filename='backend/js/plugins/bootbox/jquery.bootbox.js') }}"></script>
+	<!-- TagsInput -->
+	<script src="{{ url_for('static', filename='backend/js/plugins/tagsinput/jquery.tagsinput.min.js') }}" ></script>
+	<!-- Custom file upload -->
+	<script src="{{ url_for('static', filename='backend/js/plugins/fileupload/bootstrap-fileupload.min.js') }}"></script>
 	<!-- vmap -->
 	<script src="{{ url_for('static', filename='backend/js/plugins/vmap/jquery.vmap.min.js') }}" ></script>
 	<script src="{{ url_for('static', filename='backend/js/plugins/vmap/jquery.vmap.world.js') }}" ></script>
 	<script src="{{ url_for('static', filename='backend/js/plugins/vmap/jquery.vmap.sampledata.js') }}" ></script>
-    <!-- Bootbox -->
-    <script src="{{ url_for('static', filename='backend/js/plugins/bootbox/jquery.bootbox.js') }}"></script>
+
 	<!-- Flot -->
 	<script src="{{ url_for('static', filename='backend/js/plugins/flot/jquery.flot.min.js') }}" ></script>
 	<script src="{{ url_for('static', filename='backend/js/plugins/flot/jquery.flot.bar.order.min.js') }}" ></script>
 	<script src="{{ url_for('static', filename='backend/js/plugins/flot/jquery.flot.pie.min.js') }}" ></script>
 	<script src="{{ url_for('static', filename='backend/js/plugins/flot/jquery.flot.resize.min.js') }}" ></script>
-    <!-- imagesLoaded -->
-    <script src="{{ url_for('static', filename='backend/js/plugins/imagesLoaded/jquery.imagesloaded.min.js') }}"></script>
+
 	<!-- PageGuide -->
 	<script src="{{ url_for('static', filename='backend/js/plugins/pageguide/jquery.pageguide.js') }}"></script>
 	<!-- FullCalendar -->
@@ -260,7 +268,7 @@
                         <a href="/config">分类设置</a>
                     </li>
                     <li>
-                        <a href="/mgm/ziliao/upload">证据上传</a>
+                        <a href="/mgm/ziliao/add">证据上传</a>
                     </li>
                     <li class='dropdown'>
                         <a id="leftcompnav" href="#" data-toggle="dropdown" >证据展示</a>
