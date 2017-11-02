@@ -32,114 +32,118 @@
             </div>
 
             <ul class="portfolio recent-work clearfix">
+                {% for zl in zllist %}
+
                 <li data-id="id-1" class="ios">
-                    <a href="#">
-                    	<em class="overflow-hidden"><img src="{{ url_for('static', filename='index/assets/plugins/portfolioSorting/img/2.jpg') }}" alt="" /></em>
+                    <a href="{{ zl.filename|replace('app/','') }}" target="_blank">
+                    	<em class="overflow-hidden"><img style="width: 270px;height: 171px" src="{{ zl.filename|replace('app/','') }}" alt="" /></em>
                         <span>
-                            <strong>Happy New Year</strong>
+                            <strong>{{ zl.type }}|{{ zl.tag }}</strong>
                             <i>Anim pariatur cliche reprehenderit</i>
                         </span>
                     </a>
                 </li>
-                <li data-id="id-2" class="print">
-                    <a href="#">
-                    	<em class="overflow-hidden"><img src="{{ url_for('static', filename='index/assets/plugins/portfolioSorting/img/3.jpg') }}" alt="" /></em>
-                        <span>
-                            <strong>Happy New Year</strong>
-                            <i>Anim pariatur cliche reprehenderit</i>
-                        </span>
-                    </a>
-                </li>
-                <li data-id="id-3" class="ios">
-                    <a href="#">
-                    	<em class="overflow-hidden"><img src="{{ url_for('static', filename='index/assets/plugins/portfolioSorting/img/4.jpg') }}" alt="" /></em>
-                        <span>
-                            <strong>Happy New Year</strong>
-                            <i>Anim pariatur cliche reprehenderit</i>
-                        </span>
-                    </a>
-                </li>
-                <li data-id="id-4" class="print">
-                    <a href="portfolio_item.html">
-                    	<em class="overflow-hidden"><img src="{{ url_for('static', filename='index/assets/plugins/portfolioSorting/img/5.jpg') }}" alt="" /></em>
-                        <span>
-                            <strong>Happy New Year</strong>
-                            <i>Anim pariatur cliche reprehenderit</i>
-                        </span>
-                    </a>
-                </li>
-                <li data-id="id-5" class="web">
-                    <a href="portfolio_item.html">
-                    	<em class="overflow-hidden"><img src="{{ url_for('static', filename='index/assets/plugins/portfolioSorting/img/6.jpg') }}" alt="" /></em>
-                        <span>
-                            <strong>Happy New Year</strong>
-                            <i>Anim pariatur cliche reprehenderit</i>
-                        </span>
-                    </a>
-                </li>
-                <li data-id="id-6" class="web">
-                    <a href="portfolio_item.html">
-                    	<em class="overflow-hidden"><img src="{{ url_for('static', filename='index/assets/plugins/portfolioSorting/img/7.jpg') }}" alt="" /></em>
-                        <span>
-                            <strong>Happy New Year</strong>
-                            <i>Anim pariatur cliche reprehenderit</i>
-                        </span>
-                    </a>
-                </li>
-                <li data-id="id-7" class="print">
-                    <a href="portfolio_item.html">
-                    	<em class="overflow-hidden"><img src="{{ url_for('static', filename='index/assets/plugins/portfolioSorting/img/8.jpg') }}" alt="" /></em>
-                        <span>
-                            <strong>Happy New Year</strong>
-                            <i>Anim pariatur cliche reprehenderit</i>
-                        </span>
-                    </a>
-                </li>
-                <li data-id="id-8" class="web">
-                    <a href="portfolio_item.html">
-                    	<em class="overflow-hidden"><img src="{{ url_for('static', filename='index/assets/plugins/portfolioSorting/img/2.jpg') }}" alt="" /></em>
-                        <span>
-                            <strong>Happy New Year</strong>
-                            <i>Anim pariatur cliche reprehenderit</i>
-                        </span>
-                    </a>
-                </li>
-                <li data-id="id-9" class="ios">
-                    <a href="portfolio_item.html">
-                    	<em class="overflow-hidden"><img src="{{ url_for('static', filename='index/assets/plugins/portfolioSorting/img/9.jpg') }}" alt="" /></em>
-                        <span>
-                            <strong>Happy New Year</strong>
-                            <i>Anim pariatur cliche reprehenderit</i>
-                        </span>
-                    </a>
-                </li>
-                <li data-id="id-10" class="ios">
-                    <a href="portfolio_item.html">
-                    	<em class="overflow-hidden"><img src="{{ url_for('static', filename='index/assets/plugins/portfolioSorting/img/10.jpg') }}" alt="" /></em>
-                        <span>
-                            <strong>Happy New Year</strong>
-                            <i>Anim pariatur cliche reprehenderit</i>
-                        </span>
-                    </a>
-                </li>
-                <li data-id="id-11" class="web">
-                    <a href="portfolio_item.html">
-                    	<em class="overflow-hidden"><img src="{{ url_for('static', filename='index/assets/plugins/portfolioSorting/img/5.jpg') }}" alt="" /></em>
-                        <span>
-                            <strong>Happy New Year</strong>
-                            <i>Anim pariatur cliche reprehenderit</i>
-                        </span>
-                    </a>
-                </li>
-                <li data-id="id-12" class="web">
-                    <a href="portfolio_item.html">
-                    	<em class="overflow-hidden"><img src="{{ url_for('static', filename='index/assets/plugins/portfolioSorting/img/3.jpg') }}" alt="" /></em>
-                        <span>
-                            <strong>Happy New Year</strong>
-                            <i>Anim pariatur cliche reprehenderit</i>
-                        </span>
-                    </a>
-                </li>
+
+                {% endfor %}
+{#                <li data-id="id-2" class="print">#}
+{#                    <a href="#">#}
+{#                    	<em class="overflow-hidden"><img src="{{ url_for('static', filename='index/assets/plugins/portfolioSorting/img/3.jpg') }}" alt="" /></em>#}
+{#                        <span>#}
+{#                            <strong>Happy New Year</strong>#}
+{#                            <i>Anim pariatur cliche reprehenderit</i>#}
+{#                        </span>#}
+{#                    </a>#}
+{#                </li>#}
+{#                <li data-id="id-3" class="ios">#}
+{#                    <a href="#">#}
+{#                    	<em class="overflow-hidden"><img src="{{ url_for('static', filename='index/assets/plugins/portfolioSorting/img/4.jpg') }}" alt="" /></em>#}
+{#                        <span>#}
+{#                            <strong>Happy New Year</strong>#}
+{#                            <i>Anim pariatur cliche reprehenderit</i>#}
+{#                        </span>#}
+{#                    </a>#}
+{#                </li>#}
+{#                <li data-id="id-4" class="print">#}
+{#                    <a href="portfolio_item.html">#}
+{#                    	<em class="overflow-hidden"><img src="{{ url_for('static', filename='index/assets/plugins/portfolioSorting/img/5.jpg') }}" alt="" /></em>#}
+{#                        <span>#}
+{#                            <strong>Happy New Year</strong>#}
+{#                            <i>Anim pariatur cliche reprehenderit</i>#}
+{#                        </span>#}
+{#                    </a>#}
+{#                </li>#}
+{#                <li data-id="id-5" class="web">#}
+{#                    <a href="portfolio_item.html">#}
+{#                    	<em class="overflow-hidden"><img src="{{ url_for('static', filename='index/assets/plugins/portfolioSorting/img/6.jpg') }}" alt="" /></em>#}
+{#                        <span>#}
+{#                            <strong>Happy New Year</strong>#}
+{#                            <i>Anim pariatur cliche reprehenderit</i>#}
+{#                        </span>#}
+{#                    </a>#}
+{#                </li>#}
+{#                <li data-id="id-6" class="web">#}
+{#                    <a href="portfolio_item.html">#}
+{#                    	<em class="overflow-hidden"><img src="{{ url_for('static', filename='index/assets/plugins/portfolioSorting/img/7.jpg') }}" alt="" /></em>#}
+{#                        <span>#}
+{#                            <strong>Happy New Year</strong>#}
+{#                            <i>Anim pariatur cliche reprehenderit</i>#}
+{#                        </span>#}
+{#                    </a>#}
+{#                </li>#}
+{#                <li data-id="id-7" class="print">#}
+{#                    <a href="portfolio_item.html">#}
+{#                    	<em class="overflow-hidden"><img src="{{ url_for('static', filename='index/assets/plugins/portfolioSorting/img/8.jpg') }}" alt="" /></em>#}
+{#                        <span>#}
+{#                            <strong>Happy New Year</strong>#}
+{#                            <i>Anim pariatur cliche reprehenderit</i>#}
+{#                        </span>#}
+{#                    </a>#}
+{#                </li>#}
+{#                <li data-id="id-8" class="web">#}
+{#                    <a href="portfolio_item.html">#}
+{#                    	<em class="overflow-hidden"><img src="{{ url_for('static', filename='index/assets/plugins/portfolioSorting/img/2.jpg') }}" alt="" /></em>#}
+{#                        <span>#}
+{#                            <strong>Happy New Year</strong>#}
+{#                            <i>Anim pariatur cliche reprehenderit</i>#}
+{#                        </span>#}
+{#                    </a>#}
+{#                </li>#}
+{#                <li data-id="id-9" class="ios">#}
+{#                    <a href="portfolio_item.html">#}
+{#                    	<em class="overflow-hidden"><img src="{{ url_for('static', filename='index/assets/plugins/portfolioSorting/img/9.jpg') }}" alt="" /></em>#}
+{#                        <span>#}
+{#                            <strong>Happy New Year</strong>#}
+{#                            <i>Anim pariatur cliche reprehenderit</i>#}
+{#                        </span>#}
+{#                    </a>#}
+{#                </li>#}
+{#                <li data-id="id-10" class="ios">#}
+{#                    <a href="portfolio_item.html">#}
+{#                    	<em class="overflow-hidden"><img src="{{ url_for('static', filename='index/assets/plugins/portfolioSorting/img/10.jpg') }}" alt="" /></em>#}
+{#                        <span>#}
+{#                            <strong>Happy New Year</strong>#}
+{#                            <i>Anim pariatur cliche reprehenderit</i>#}
+{#                        </span>#}
+{#                    </a>#}
+{#                </li>#}
+{#                <li data-id="id-11" class="web">#}
+{#                    <a href="portfolio_item.html">#}
+{#                    	<em class="overflow-hidden"><img src="{{ url_for('static', filename='index/assets/plugins/portfolioSorting/img/5.jpg') }}" alt="" /></em>#}
+{#                        <span>#}
+{#                            <strong>Happy New Year</strong>#}
+{#                            <i>Anim pariatur cliche reprehenderit</i>#}
+{#                        </span>#}
+{#                    </a>#}
+{#                </li>#}
+{#                <li data-id="id-12" class="web">#}
+{#                    <a href="portfolio_item.html">#}
+{#                    	<em class="overflow-hidden"><img src="{{ url_for('static', filename='index/assets/plugins/portfolioSorting/img/3.jpg') }}" alt="" /></em>#}
+{#                        <span>#}
+{#                            <strong>Happy New Year</strong>#}
+{#                            <i>Anim pariatur cliche reprehenderit</i>#}
+{#                        </span>#}
+{#                    </a>#}
+{#                </li>#}
 
             </ul>
         </div>
