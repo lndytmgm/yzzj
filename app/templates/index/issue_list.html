@@ -35,7 +35,7 @@
                         <tr>
                             <td style="width: 20px;text-align: center">{{ issue.id }}</td>
                             <td><a href="/issue/detail/{{ issue.id }}"> {{ issue.title }}</a></td>
-                            <td>{{ issue.description }}</td>
+                            <td><a href="/issue/detail/{{ issue.id }}"> {{ issue.description }}</a></td>
                             <td style="width: 100px;text-align: center">{{ issue.create_date }}</td>
                             {% if issue.pic_kfs == None %}<td style="width: 200px"></td>{% else %}<td>{{ issue.pic_kfs }}</td>{% endif %}
 {#                            {% if issue.pic_zf == None %}<td style="width: 200px"></td>{% else %}<td>{{ issue.pic_zf }}</td>{% endif %}#}
