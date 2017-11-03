@@ -12,7 +12,7 @@ UPLOAD_FOLDER_ziliao='app/static/upload/ziliao/'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['UPLOAD_FOLDER_ziliao'] = UPLOAD_FOLDER_ziliao
 
-ALLOWED_EXTENSIONS = set(['txt','png','jpg','xls','JPG','PNG','xlsx','gif','GIF','ppt','mp4','doc'])
+ALLOWED_EXTENSIONS = set(['txt','png','jpg','xls','JPG','PNG','xlsx','gif','GIF','ppt','mp4','doc','docx'])
 
 app.secret_key = 'mgm2017weiquan'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
