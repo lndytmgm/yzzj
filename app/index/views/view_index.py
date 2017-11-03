@@ -5,6 +5,7 @@ import sys
 from app import app
 
 @app.route('/')
+@app.route('/home')
 def home():
     print'__name__==', __name__,':',sys._getframe().f_code.co_name
     # try:
