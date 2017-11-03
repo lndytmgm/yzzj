@@ -1,11 +1,14 @@
-# codding:utf-8
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
 import sys,os,uuid
 
 from flask import render_template,request,abort,jsonify,session,redirect,url_for,make_response
 from app.admin.models.model_ziliao import *
 from app import app, ALLOWED_EXTENSIONS
 from werkzeug.utils import secure_filename
-
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
 
 
 

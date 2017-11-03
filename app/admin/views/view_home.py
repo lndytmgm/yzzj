@@ -1,4 +1,5 @@
-# codding:utf-8
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
 import sys
 
 from flask import render_template,session

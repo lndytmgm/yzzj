@@ -1,4 +1,5 @@
-# coding:utf-8
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
 
 from app import app
 from flask import render_template, request, make_response, jsonify, redirect, url_for, session, g
