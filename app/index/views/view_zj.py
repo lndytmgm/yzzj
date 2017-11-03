@@ -8,6 +8,12 @@ from app.index.models.model_ziliao import *
 @app.route('/zj')
 def zj_home():
     print'__name__==', __name__,':',sys._getframe().f_code.co_name
+    if 'haslogin' not in session:
+        return redirect(url_for('login'))
+    if session['haslogin'] == False:
+        return redirect(url_for('login'))
+    # if not session['renzheng'] == u'已认证':
+    #     return redirect(url_for('renzheng'))
 
     rt,data = get_all_ziliao()
 
