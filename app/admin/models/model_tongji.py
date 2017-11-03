@@ -37,18 +37,27 @@ def calc_user_in_1_building(alluser):
         "8#":0
     }
 
+
     for loop,user in enumerate(alluser):
         print loop
         index = str(user.house).split('#')[0]
         print index
         print type(index)
-        house[index+'#'] = house[index+'#'] + int(index)
+        house[index+'#'] = house[index+'#'] + 1
 
         print '==='
 
     print house
+    print type(house)
+    list = []
+    for k,v in  house.items():
+        print k,v
+        list.append({"data":[v],"name":k})
 
-    return house
+
+    print list
+    return list
+
 
 
 

@@ -1,29 +1,36 @@
 {% extends "common/backend.html" %}
 
-{% block body_content -%}
+{% block content -%}
 
-<div class="container-fluid" id="dependency_body" >
-    <div class="row-fluid" id="p_{{ user.phone }}">
-        <div class="span12">
-            <div id="item_chart">
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span6">
+                    <div id="item_chart">
 
 
+                    </div>
+                </div>
+
+                <div class="span6">
+                    <div id="item_chart2">
+
+
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
 
 
-{%- endblock body_content %}
+{%- endblock content %}
 
 
 {% block scripts %}
-    <script type="text/javascript" src="{{ url_for('static', filename='backend/js/highcharts/highcharts.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='index/assets/plugins/highcharts/highcharts.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='backend/js/mgm_backend_tongji.js') }}"></script>
     <script type="text/javascript">
         jQuery(document).ready(function() {
 
-            tongji_user('{{ user_building_dict }}');
+            tongji_user({{ user_building_dict|sort(attribute='name')|tojson  }});
 
         });
     </script>

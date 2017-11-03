@@ -3,7 +3,7 @@
 
 function tongji_user(user_building_dict){
     //console.log(title);
-    //console.log(item_list);
+    console.log(user_building_dict);
 
     $('#item_chart').highcharts({
         colors: ['#48C9C9','#FD6E58','#368EE0', '#DDDF00', '#24CBE5', '#64E572', '#FF9655', '#FFF263', '#6AF9C4'],
@@ -14,11 +14,11 @@ function tongji_user(user_building_dict){
             text: '各楼栋业主注册数量'
         },
         subtitle: {
-            text: '数据来源: 共' +user_building_dict.length+'栋'
+            text: '数据来源: 共8栋'
         },
         xAxis: {
             categories: [
-                '选项'
+                '楼号'
             ],
             crosshair: true
         },
@@ -52,5 +52,5 @@ function tongji_user(user_building_dict){
 
 
 function loading(){
-$('#nav_complist').html('<img src="/static/index/assets/img/loading.gif"/>');
+$('#item_chart').html('<img src="/static/index/assets/img/loading.gif"/>');
 }
