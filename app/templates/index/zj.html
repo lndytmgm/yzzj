@@ -47,13 +47,15 @@
                             <img style="width: 270px;height: 171px" src="{{ zl.filename|replace('app/','') }}" alt="{{ zl.description }}" />
                         {% elif zl.type=='doc' %}
                             <img style="width: 270px;height: 171px" src="{{ url_for('static', filename='index/assets/img/doc.png') }}" alt="{{ zl.description }}" />
+                        {% elif zl.type=='qita' %}
+                            <img style="width: 270px;height: 171px" src="{{ zl.filename|replace('app/','') }}" alt="{{ zl.description }}" />
                         {% endif %}
 
 
                         </em>
                         <span>
                             <strong>
-                                {% if zl.type=='pic' %} 图片{% elif zl.type=='video' %} 视频{% elif zl.type=='doc' %} 文档{% endif %}
+                                {% if zl.type=='pic' %} 图片{% elif zl.type=='video' %} 视频{% elif zl.type=='doc' %} 文档{% elif zl.type=='qita' %} 其他{% endif %}
                                 |
                                 {{ zl.tag }}
                             </strong>
