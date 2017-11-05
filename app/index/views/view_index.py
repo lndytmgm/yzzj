@@ -4,6 +4,15 @@ from flask import render_template,session,redirect,url_for
 import sys
 from app import app
 
+@app.route('/tencent3772985137319405190.txt')
+def tencent():
+    print'__name__==', __name__,':',sys._getframe().f_code.co_name
+
+
+    return app.send_static_file('tencent3772985137319405190.txt')
+
+
+
 @app.route('/')
 @app.route('/home')
 def home():
